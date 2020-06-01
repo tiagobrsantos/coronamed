@@ -11,6 +11,7 @@ namespace CoronaMed.DataAccess.Context
 	{
 
 		public DbSet<Partner> Partners { get; set; }
+		public DbSet<ContactUs> ContactUs { get; set; }
 
 		public CoronaMedContext(DbContextOptions options) : base(options)
 		{

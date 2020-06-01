@@ -25,7 +25,7 @@ namespace CoronaMed.Controllers
 		[HttpGet("{id:int}")]
 		public async Task<IActionResult> Get(int id)
 		{
-			return Ok(partnerRepository.Get());
+			return Ok(partnerRepository.Get(x => x.Id == id));
 		}
 
 		[HttpPost]
@@ -55,7 +55,7 @@ namespace CoronaMed.Controllers
 			DeleteEntityCommand command = new DeleteEntityCommand(id);
 			await partnerCommandHandler.ExecuteAsync(command);			
 
-			return this.HandleNotification(partnerCommandHandler, null);
+			return this.HandleNotification(partnerCommandHandler);
 		}
 	}
 }

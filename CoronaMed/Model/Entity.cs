@@ -9,9 +9,11 @@ namespace CoronaMed.Model
 	{
 		public int Id { get; set; }
 		public DateTimeOffset CreationDate { get; set; }
+		public bool IsActive { get; set; }
 
 		public Entity()
 		{
+			IsActive = true;
 			CreationDate = DateTime.UtcNow;
 		}
 	}

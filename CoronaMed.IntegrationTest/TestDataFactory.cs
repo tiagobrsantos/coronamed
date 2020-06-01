@@ -11,5 +11,14 @@ namespace CoronaMed.IntegrationTest
 		{
 			return new Partner { Name = "Partner" };
 		}
+
+		public static ContactUs GetContactUs()
+		{
+			return new ContactUs
+			{
+				Email = "joao.silva@example.com",
+				Message = "xxx"
+			};
+		}
 	}
 }

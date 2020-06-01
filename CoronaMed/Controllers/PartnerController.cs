@@ -55,7 +55,7 @@ namespace CoronaMed.Controllers
 			DeleteEntityCommand command = new DeleteEntityCommand(id);
 			await partnerCommandHandler.ExecuteAsync(command);			
 
-			return this.HandleNotification(partnerCommandHandler, null);
+			return this.HandleNotification(partnerCommandHandler);
 		}
 	}
 }

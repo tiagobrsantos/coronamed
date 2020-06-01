@@ -11,7 +11,7 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("CoronaMed, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\User01\\source\\repos\\CoronaMed\\CoronaMed", "CoronaMed.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("CoronaMed, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\CoronaMed\\Git\\coronamed\\CoronaMed", "CoronaMed.csproj", "0")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("CoronaMed.IntegrationTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

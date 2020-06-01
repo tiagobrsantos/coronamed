@@ -10575,11 +10575,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User01\\source\\repos\\CoronaMed\\CoronaMed.IntegrationTest\\CoronaMed.IntegrationTest.csproj",
+      "projectUniqueName": "C:\\CoronaMed\\Git\\coronamed\\CoronaMed.IntegrationTest\\CoronaMed.IntegrationTest.csproj",
       "projectName": "CoronaMed.IntegrationTest",
-      "projectPath": "C:\\Users\\User01\\source\\repos\\CoronaMed\\CoronaMed.IntegrationTest\\CoronaMed.IntegrationTest.csproj",
+      "projectPath": "C:\\CoronaMed\\Git\\coronamed\\CoronaMed.IntegrationTest\\CoronaMed.IntegrationTest.csproj",
       "packagesPath": "C:\\Users\\User01\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User01\\source\\repos\\CoronaMed\\CoronaMed.IntegrationTest\\obj\\",
+      "outputPath": "C:\\CoronaMed\\Git\\coronamed\\CoronaMed.IntegrationTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User01\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10596,8 +10596,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\User01\\source\\repos\\CoronaMed\\CoronaMed\\CoronaMed.csproj": {
-              "projectPath": "C:\\Users\\User01\\source\\repos\\CoronaMed\\CoronaMed\\CoronaMed.csproj"
+            "C:\\CoronaMed\\Git\\coronamed\\CoronaMed\\CoronaMed.csproj": {
+              "projectPath": "C:\\CoronaMed\\Git\\coronamed\\CoronaMed\\CoronaMed.csproj"
             }
           }
         }

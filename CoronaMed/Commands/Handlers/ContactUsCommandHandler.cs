@@ -10,18 +10,18 @@ using System.Threading.Tasks;
 
 namespace CoronaMed.Commands.Handlers
 {
-	public class PartnerCommandHandler : Notifiable, IPartnerCommandHandler
+	public class ContactUsCommandHandler : Notifiable, IContactUsCommandHandler
 	{
 		private readonly ILogger logger;
-		private readonly IPartnerRepository partnerRepository;
+		private readonly IContactUsRepository contactUsRepository;
 
-		public PartnerCommandHandler(IPartnerRepository partnerRepository, ILogger<PartnerCommandHandler> logger)
+		public ContactUsCommandHandler(IContactUsRepository contactUsRepository, ILogger<ContactUsCommandHandler> logger)
 		{
-			this.partnerRepository = partnerRepository;
+			this.contactUsRepository = contactUsRepository;
 			this.logger = logger;
 		}
 
-		public async Task ExecuteAsync(CreatePartnerCommand command)
+		public async Task ExecuteAsync(CreateContactUsCommand command)
 		{
 			if (!command.Validate())
 			{
@@ -31,7 +31,7 @@ namespace CoronaMed.Commands.Handlers
 
 			try
 			{
-				await partnerRepository.AddAsync(command.Partner);
+				await contactUsRepository.AddAsync(command.ContactUs);
 			}
 			catch (Exception ex)
 			{
@@ -42,7 +42,7 @@ namespace CoronaMed.Commands.Handlers
 		}
 
 		[HttpPut]
-		public async Task ExecuteAsync(UpdatePartnerCommand command)
+		public async Task ExecuteAsync(UpdateContactUsCommand command)
 		{
 			if (!command.Validate())
 			{
@@ -50,7 +50,7 @@ namespace CoronaMed.Commands.Handlers
 				return;
 			}
 
-			AddNotification(!partnerRepository.Get().Any(x => x.Id == command.Partner.Id), "Partner Id Not Found");
+			AddNotification(!contactUsRepository.Get().Any(x => x.Id == command.ContactUs.Id), "ContactUs Id Not Found");
 			
 			if (!IsValid)
 				return;
@@ -58,7 +58,7 @@ namespace CoronaMed.Commands.Handlers
 
 			try
 			{
-				await partnerRepository.UpdateAsync(command.Partner);
+				await contactUsRepository.UpdateAsync(command.ContactUs);
 			}
 			catch (Exception ex)
 			{
@@ -75,14 +75,14 @@ namespace CoronaMed.Commands.Handlers
 				return;
 			}
 
-			AddNotification(!partnerRepository.Get().Any(x => x.Id == command.Id), "Partner Id Not Found");
+			AddNotification(!contactUsRepository.Get().Any(x => x.Id == command.Id), "ContactUs Id Not Found");
 
 			if (!IsValid)
 				return;
 
 			try
 			{
-				await partnerRepository.DeleteAsync(partnerRepository.Get(x => x.Id == command.Id).FirstOrDefault());
+				await contactUsRepository.DeleteAsync(contactUsRepository.Get(x => x.Id == command.Id).FirstOrDefault());
 			}
 			catch (Exception ex)
 			{

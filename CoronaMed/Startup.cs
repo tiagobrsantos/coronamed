@@ -63,9 +63,11 @@ namespace CoronaMed
 			#region IOC
 			//Repositories
 			services.AddTransient<IPartnerRepository, PartnerRepository>();
+			services.AddTransient<IContactUsRepository, ContactUsRepository>();
 
 			//CommandHandler
 			services.AddTransient<IPartnerCommandHandler, PartnerCommandHandler>();
+			services.AddTransient<IContactUsCommandHandler, ContactUsCommandHandler>();
 
 			#endregion
 		}

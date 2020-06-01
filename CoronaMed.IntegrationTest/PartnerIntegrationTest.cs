@@ -30,6 +30,16 @@ namespace CoronaMed.IntegrationTest
 		}
 
 		[Fact]
+		public async Task CreatePartner_InvalidId_Fail()
+		{
+			Partner partner = TestDataFactory.GetPartner();
+			partner.Id = 1;
+
+			var response = await httpTestClient.PostAsJsonAsync("/api/partners", partner);
+			Assert.True(response.StatusCode == HttpStatusCode.BadRequest);
+		}
+
+		[Fact]
 		public async Task UpdatePartner_Ok()
 		{
 			Partner partner = TestDataFactory.GetPartner();
@@ -88,11 +98,28 @@ namespace CoronaMed.IntegrationTest
 			if (response.IsSuccessStatusCode)
 			{
 				partner = JsonConvert.DeserializeObject<Partner>(await response.Content.ReadAsStringAsync());
-				partner.Id = 0;
+				//partner.Id = 0;
 
 				response = await httpTestClient.DeleteAsync("/api/partners/" + partner.Id);
 
 				Assert.True(response.StatusCode == HttpStatusCode.OK);
+			}
+		}
+
+		[Fact]
+		public async Task DeletePartner_InvalidId_Fail()
+		{
+			Partner partner = TestDataFactory.GetPartner();
+
+			var response = await httpTestClient.PostAsJsonAsync("/api/partners", partner);
+			if (response.IsSuccessStatusCode)
+			{
+				partner = JsonConvert.DeserializeObject<Partner>(await response.Content.ReadAsStringAsync());
+				partner.Id = 100;
+
+				response = await httpTestClient.DeleteAsync("/api/partners/" + partner.Id);
+
+				Assert.True(response.StatusCode == HttpStatusCode.BadRequest);
 			}
 		}
 	}

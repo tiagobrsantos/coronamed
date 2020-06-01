@@ -18,5 +18,18 @@ namespace CoronaMed.Helper
 			}
 			return controllerBase.BadRequest(notifiable.GetNotifications());
 		}
+
+		public static IActionResult HandleNotification(this ControllerBase controllerBase, INotifiable notifiable)
+		{
+			if (notifiable.IsValid)
+			{
+				return controllerBase.Ok();
+			}
+			if (notifiable.HasInternalServerError)
+			{
+				return controllerBase.StatusCode(StatusCodes.Status500InternalServerError, notifiable.GetNotifications());
+			}
+			return controllerBase.BadRequest(notifiable.GetNotifications());
+		}
 	}
 }
