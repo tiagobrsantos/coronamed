@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace CoronaMed.Model
 {
-	public class Partner : Entity
+	public class ProjectDocument
 	{
-		public string Name { get; set; }
-		public string Description { get; set; }
+		public Project Project { get; set; }
+		[ForeignKey("Project")]
+		public int ProjectId { get; set; }
 
 		public DocumentFile DocumentFile { get; set; }
 		[ForeignKey("DocumentFile")]
